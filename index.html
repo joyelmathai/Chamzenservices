@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chamzen Services | Professional Office Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2e8b57;
+      --primary-light: #3cb371;
+      --secondary: #2c3e50;
+      --accent: #f39c12;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 70px;
+      transition: var(--transition);
+    }
+
+    .logo-text {
+      margin-left: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-main {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .lang-toggle {
+      margin-left: 30px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .lang-toggle:hover {
+      background: var(--primary-light);
+    }
+
+    .lang-toggle i {
+      margin-right: 5px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease 0.4s forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Main Content Sections */
+    .content-section {
+      padding: 100px 0;
+      background-color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* About Page Specific */
+    .about-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-image {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Services Page Specific */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.1);
+    }
+
+    .service-content {
+      padding: 25px;
+    }
+
+    .service-content h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    /* Pricing Page Specific */
+    .pricing-plans {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pricing-card {
+      flex: 1;
+      min-width: 300px;
+      max-width: 350px;
+      background: white;
+      border-radius: 10px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--primary);
+      position: relative;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      padding: 5px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 20px 0;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin: 30px 0;
+    }
+
+    .pricing-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    /* Contact Form Section */
+    .contact-container {
+      display: flex;
+      gap: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .contact-info {
+      flex: 1;
+      padding: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .info-item i {
+      font-size: 1.2rem;
+      margin-right: 15px;
+      margin-top: 3px;
+    }
+
+    .info-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .info-content p, .info-content a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .info-content a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      flex: 1.5;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--light-gray);
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      position: relative;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-column p {
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: white;
+      opacity: 0.8;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .contact-container, .about-content {
+        flex-direction: column;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .pricing-plans {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 15px 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: var(--transition);
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        margin-left: 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .logo {
+        height: 60px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Confirmation Message */
+    #confirmation {
+      display: none;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+
+    #confirmation i {
+      font-size: 2rem;
+      color: #28a745;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Active Page Highlight */
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Services Page Specific */
+    .service-details {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .service-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .service-intro p {
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+
+    .service-features {
+      background-color: var(--light);
+      padding: 40px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .service-features h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .feature-item i {
+      color: var(--primary);
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+
+    /* Pricing Page Specific */
+    .pricing-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .pricing-intro p {
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+
+    .pricing-card.simple {
+      background-color: var(--light);
+    }
+
+    .pricing-features.simple li {
+      display: flex;
+      align-items: center;
+    }
+
+    .pricing-features.simple li i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+
+    /* Quote Form Section */
+    .quote-section {
+      background-color: var(--light);
+      padding: 80px 0;
+    }
+
+    .quote-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 50px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quote-form .form-row {
+      margin-bottom: 20px;
+    }
+
+    .quote-form .form-group {
+      margin-bottom: 15px;
+    }
+
+    .quote-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .quote-form input,
+    .quote-form select,
+    .quote-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .quote-form button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .quote-form button:hover {
+      background: var(--primary-light);
+    }
+
+    /* Simple Pricing Section */
+    .simple-pricing {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .simple-pricing h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .simple-pricing .price {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin: 20px 0;
+    }
+
+    .simple-pricing ul {
+      list-style: none;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .simple-pricing li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+    }
+
+    .simple-pricing li i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* New Services Section Styles */
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .services-header h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .services-header p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .service-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    
+    .service-card-enhanced {
+      flex: 1;
+      min-width: 300px;
+      max-width: 350px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card-enhanced:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-icon {
+      background: var(--primary);
+      color: white;
+      font-size: 2.5rem;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .service-content-enhanced {
+      padding: 30px;
+    }
+    
+    .service-content-enhanced h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .service-content-enhanced p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    
+    .service-features-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    
+    .service-features-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+    }
+    
+    .service-features-list li i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    
+    .learn-more-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .learn-more-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    /* New form message styles */
+    .form-message {
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 5px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .form-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .form-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .form-warning {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+    
+    .form-loading {
+      background-color: #e2e3e5;
+      color: #383d41;
+      border: 1px solid #d6d8db;
+    }
+    
+    .form-message i {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .is-invalid {
+      border-color: #dc3545 !important;
+    }
+    
+    .invalid-feedback {
+      color: #dc3545;
+      font-size: 0.875rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    /* Loading spinner for buttons */
+    .loading-spinner {
+      display: none;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo-container">
+        <a href="#home">
+          <img src="logo.png" alt="Chamzen Services" class="logo">
+        </a>
+        <div class="logo-text">
+          <span class="logo-main" id="logo-title">Chamzen Services</span>
+          <span class="logo-sub" id="logo-subtitle">Professional Cleaning</span>
+        </div>
+      </div>
+      
+      <nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" id="nav-home" class="active">Home</a></li>
+          <li><a href="#about" id="nav-about">About</a></li>
+          <li><a href="#services" id="nav-services">Services</a></li>
+          <li><a href="#pricing" id="nav-pricing">Pricing</a></li>
+          <li><a href="#contact" id="nav-contact">Contact</a></li>
+          <li>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+              <i class="fas fa-globe"></i>
+              <span id="lang-text">DE</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 id="hero-title">Professional Office Cleaning in Berlin</h1>
+      <p id="hero-subtitle">High-quality and reliable cleaning solutions tailored to your business needs</p>
+      <div class="hero-buttons">
+        <a href="#quote" class="btn btn-primary" id="hero-btn1">Get a Free Quote</a>
+        <a href="#contact" class="btn btn-secondary" id="hero-btn2">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="content-section" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 id="about-title">About Chamzen Services</h2>
+          <p id="about-text">Chamzen Services is a professional office cleaning company based in Berlin, committed to delivering high-quality and reliable cleaning solutions tailored to your business needs. We are an English-speaking company with a team of trained and experienced cleaners who take pride in maintaining clean, healthy, and productive work environments.</p>
+          <p>We understand that a clean office space directly contributes to employee well-being, morale, and overall productivity. To minimize any disruption to your operations, our team is available outside your regular working hours, so your business can run smoothly while we take care of the cleanliness.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Office Cleaning">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section - Redesigned -->
+  <section class="content-section" style="background-color: var(--light);" id="services">
+    <div class="container">
+      <div class="services-header">
+        <h2>Our Comprehensive Cleaning Solutions</h2>
+        <p>We offer professional cleaning services tailored to keep your office space pristine and hygienic</p>
+      </div>
+      
+      <div class="service-cards-container">
+        <!-- Regular Cleaning Card -->
+        <div class="service-card-enhanced">
+          <div class="service-icon">
+            <i class="fas fa-broom"></i>
+          </div>
+          <div class="service-content-enhanced">
+            <h3>Regular Office Cleaning</h3>
+            <p>Maintain a consistently clean workspace with our scheduled cleaning services.</p>
+            <ul class="service-features-list">
+              <li><i class="fas fa-check"></i> Daily or weekly cleaning plans</li>
+              <li><i class="fas fa-check"></i> Dusting and wiping surfaces</li>
+              <li><i class="fas fa-check"></i> Vacuuming and floor care</li>
+              <li><i class="fas fa-check"></i> Trash removal and replacement</li>
+            </ul>
+            <a href="#quote" class="learn-more-btn">Get a Quote</a>
+          </div>
+        </div>
+        
+        <!-- Deep Cleaning Card -->
+        <div class="service-card-enhanced">
+          <div class="service-icon">
+            <i class="fas fa-spray-can"></i>
+          </div>
+          <div class="service-content-enhanced">
+            <h3>Deep Cleaning</h3>
+            <p>Thorough cleaning for all areas of your office, including hard-to-reach spaces.</p>
+            <ul class="service-features-list">
+              <li><i class="fas fa-check"></i> Comprehensive sanitization</li>
+              <li><i class="fas fa-check"></i> Detailed attention to all surfaces</li>
+              <li><i class="fas fa-check"></i> High-touch area disinfection</li>
+              <li><i class="fas fa-check"></i> Grout and tile cleaning</li>
+            </ul>
+            <a href="#quote" class="learn-more-btn">Get a Quote</a>
+          </div>
+        </div>
+        
+        <!-- Specialized Cleaning Card -->
+        <div class="service-card-enhanced">
+          <div class="service-icon">
+            <i class="fas fa-water"></i>
+          </div>
+          <div class="service-content-enhanced">
+            <h3>Specialized Cleaning</h3>
+            <p>Targeted cleaning services to address specific needs in your office.</p>
+            <ul class="service-features-list">
+              <li><i class="fas fa-check"></i> Carpet and upholstery cleaning</li>
+              <li><i class="fas fa-check"></i> Window washing services</li>
+              <li><i class="fas fa-check"></i> High-level dusting</li>
+              <li><i class="fas fa-check"></i> Post-construction cleanup</li>
+            </ul>
+            <a href="#quote" class="learn-more-btn">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional Services Features -->
+      <div class="service-features" style="margin-top: 50px;">
+        <h3>Why Choose Our Cleaning Services?</h3>
+        <div class="features-list">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h4>Trained Professionals</h4>
+              <p>Our team undergoes rigorous training to deliver consistent, high-quality results</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h4>Eco-Friendly Products</h4>
+              <p>We use environmentally friendly cleaning products that are safe for your staff</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h4>Flexible Scheduling</h4>
+              <p>We work around your business hours to minimize disruption</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h4>Customized Plans</h4>
+              <p>Tailored cleaning solutions to meet your specific requirements</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h4>Quality Assurance</h4>
+              <p>Regular inspections to ensure our services meet your standards</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h4>English-Speaking Staff</h4>
+              <p>Clear communication with our English-speaking team</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="content-section" id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="pricing-title">Simple Pricing</h2>
+        <p id="pricing-subtitle">Transparent pricing with no hidden fees</p>
+      </div>
+      
+      <div class="simple-pricing">
+        <h3 id="simple-pricing-title">Standard Rate</h3>
+        <div class="price">€23<span>/hour</span></div>
+        <p id="pricing-note">Final price may vary according to the size of the object and frequency of service.</p>
+        <ul>
+          <li><i class="fas fa-check"></i> <span id="feature1">All cleaning supplies included</span></li>
+          <li><i class="fas fa-check"></i> <span id="feature2">Flexible scheduling options</span></li>
+          <li><i class="fas fa-check"></i> <span id="feature3">Free consultation and estimate</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Form Section -->
+  <section class="quote-section" id="quote">
+    <div class="container">
+      <div class="quote-container">
+        <div class="section-title">
+          <h2 id="quote-title">Get a Free Quote</h2>
+          <p id="quote-subtitle">Fill out the form below and we'll get back to you with a customized quote</p>
+        </div>
+        
+        <form class="quote-form" id="quote-form" action="https://formspree.io/f/xblyyvpe" method="POST">
+          <input type="hidden" name="_subject" value="New Quote Request - Chamzen Services">
+          <input type="hidden" name="_replyto" value="%email%">
+          <input type="text" name="_gotcha" style="display:none"> <!-- Anti-spam honeypot -->
+          
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+              <div class="invalid-feedback">Please provide your name.</div>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" class="form-control">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control">
+              <div class="invalid-feedback">Please provide a valid phone number.</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service" class="form-control" required>
+              <option value="">Select a service</option>
+              <option value="regular">Regular Office Cleaning</option>
+              <option value="deep">Deep Cleaning</option>
+              <option value="specialized">Specialized Cleaning</option>
+              <option value="custom">Custom Solution</option>
+            </select>
+            <div class="invalid-feedback">Please select a service.</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="frequency">Preferred Cleaning Frequency</label>
+            <select id="frequency" name="frequency" class="form-control" required>
+              <option value="">Select frequency</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="biweekly">Bi-Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="one-time">One-Time</option>
+            </select>
+            <div class="invalid-feedback">Please select a frequency.</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Additional Information</label>
+            <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+          </div>
+          
+          <button type="submit" id="quote-submit" class="submit-btn">
+            <span class="btn-text">Request Quote</span>
+            <span class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+          
+          <div id="quote-form-message" class="form-message" style="display: none;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="content-section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="contact-title">Contact Us</h2>
+        <p>Get in touch to discuss your cleaning needs</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div class="info-content">
+              <h4>Email</h4>
+              <a href="mailto:contact@chamzenservices.de">contact@chamzenservices.de</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="info-content">
+              <h4>Location</h4>
+              <p>Berlin, Germany</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <div class="info-content">
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 8:00 - 18:00</p>
+              <p>Saturday: 9:00 - 14:00</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contact-form" action="https://formspree.io/f/xblyyvpe" method="POST">
+            <input type="hidden" name="_subject" value="New Contact Message - Chamzen Services">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" class="form-control" required>
+                <div class="invalid-feedback">Please provide your name.</div>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <input type="email" id="contact-email" name="email" class="form-control" required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" class="form-control" required></textarea>
+              <div class="invalid-feedback">Please enter your message.</div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="contact-submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="loading-spinner" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+              </span>
+            </button>
+            
+            <div id="contact-form-message" class="form-message" style="display: none;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="content-section" style="background-color: var(--primary); color: white; text-align: center;">
+    <div class="container">
+      <h2 style="color: white; margin-bottom: 20px;">Ready to Transform Your Workspace?</h2>
+      <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px;">Contact us today to discuss your cleaning needs and schedule your first service.</p>
+      <div style="display: flex; justify-content: center; gap: 20px;">
+        <a href="#quote" class="btn btn-secondary">Get a Free Quote</a>
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="logo-container">
+            <img src="logo.png" alt="Chamzen Services" class="logo" style="height: 60px;">
+            <div class="logo-text">
+              <span class="logo-main" style="color: white; font-size: 1.5rem;">Chamzen Services</span>
+              <span class="logo-sub" style="color: rgba(255,255,255,0.7);">Professional Cleaning</span>
+            </div>
+          </div>
+          <p id="footer-about">Providing top-quality office cleaning services with English-speaking staff. We're committed to excellence in every detail.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3 id="footer-services-title">Our Services</h3>
+          <ul class="footer-links" id="footer-services">
+            <li><a href="#services">Office Cleaning</a></li>
+            <li><a href="#services">Deep Cleaning</a></li>
+            <li><a href="#services">Carpet Cleaning</a></li>
+            <li><a href="#services">Window Cleaning</a></li>
+            <li><a href="#services">Sanitization</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 id="footer-links-title">Quick Links</h3>
+          <ul class="footer-links" id="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 id="footer-contact-title">Contact Us</h3>
+          <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> contact@chamzenservices.de</p>
+          <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Berlin, Germany</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p id="copyright">&copy; 2025 Chamzen Services. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in Berlin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when a nav link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Highlight current section in navigation
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 300)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Language Toggle
+    const lang = {
+      en: {
+        // Header
+        "logo-title": "Chamzen Services",
+        "logo-subtitle": "Professional Cleaning",
+        "nav-home": "Home",
+        "nav-about": "About",
+        "nav-services": "Services",
+        "nav-pricing": "Pricing",
+        "nav-contact": "Contact",
+        "lang-text": "DE",
+        
+        // Hero
+        "hero-title": "Professional Office Cleaning in Berlin",
+        "hero-subtitle": "High-quality and reliable cleaning solutions tailored to your business needs",
+        "hero-btn1": "Get a Free Quote",
+        "hero-btn2": "Contact Us",
+        
+        // About
+        "about-title": "About Chamzen Services",
+        "about-text": "Chamzen Services is a professional office cleaning company based in Berlin, committed to delivering high-quality and reliable cleaning solutions tailored to your business needs. We are an English-speaking company with a team of trained and experienced cleaners who take pride in maintaining clean, healthy, and productive work environments.",
+        
+        // Services
+        "services-title": "Our Services",
+        "services-subtitle": "We offer comprehensive cleaning solutions for your office space",
+        
+        // Pricing
+        "pricing-title": "Simple Pricing",
+        "pricing-subtitle": "Transparent pricing with no hidden fees",
+        "simple-pricing-title": "Standard Rate",
+        "pricing-note": "Final price may vary according to the size of the object and frequency of service.",
+        "feature1": "All cleaning supplies included",
+        "feature2": "Flexible scheduling options",
+        "feature3": "Free consultation and estimate",
+        
+        // Quote Form
+        "quote-title": "Get a Free Quote",
+        "quote-subtitle": "Fill out the form below and we'll get back to you with a customized quote",
+        "quote-submit": "Request Quote",
+        
+        // Contact
+        "contact-title": "Contact Us",
+        
+        // Footer
+        "footer-about": "Providing top-quality office cleaning services with English-speaking staff. We're committed to excellence in every detail.",
+        "footer-services-title": "Our Services",
+        "footer-links-title": "Quick Links",
+        "footer-contact-title": "Contact Us",
+        "copyright": "© 2025 Chamzen Services. All Rights Reserved. | Designed with ♥ in Berlin"
+      },
+      de: {
+        // Header
+        "logo-title": "Chamzen Dienstleistungen",
+        "logo-subtitle": "Professionelle Reinigung",
+        "nav-home": "Startseite",
+        "nav-about": "Über uns",
+        "nav-services": "Dienstleistungen",
+        "nav-pricing": "Preise",
+        "nav-contact": "Kontakt",
+        "lang-text": "EN",
+        
+        // Hero
+        "hero-title": "Professionelle Büroreinigung in Berlin",
+        "hero-subtitle": "Hochwertige und zuverlässige Reinigungslösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind",
+        "hero-btn1": "Kostenloses Angebot",
+        "hero-btn2": "Kontakt",
+        
+        // About
+        "about-title": "Über Chamzen Services",
+        "about-text": "Chamzen Services ist ein professionelles Büroreinigungsunternehmen mit Sitz in Berlin, das sich auf hochwertige und zuverlässige Reinigungslösungen spezialisiert hat, die auf Ihre Geschäftsanforderungen zugeschnitten sind. Wir sind ein englischsprachiges Unternehmen mit einem Team ausgebildeter und erfahrener Reinigungskräfte, die stolz darauf sind, saubere, gesunde und produktive Arbeitsumgebungen zu erhalten.",
+        
+        // Services
+        "services-title": "Unsere Dienstleistungen",
+        "services-subtitle": "Wir bieten umfassende Reinigungslösungen für Ihr Büro",
+        
+        // Pricing
+        "pricing-title": "Einfache Preisgestaltung",
+        "pricing-subtitle": "Transparente Preise ohne versteckte Gebühren",
+        "simple-pricing-title": "Standardtarif",
+        "pricing-note": "Der Endpreis kann je nach Größe des Objekts und Häufigkeit der Dienstleistung variieren.",
+        "feature1": "Reinigungsmittel inklusive",
+        "feature2": "Flexible Terminvereinbarung",
+        "feature3": "Kostenlose Beratung & Angebot",
+        
+        // Quote Form
+        "quote-title": "Kostenloses Angebot anfordern",
+        "quote-subtitle": "Füllen Sie das Formular aus und wir senden Ihnen ein maßgeschneidertes Angebot zu",
+        "quote-submit": "Angebot anfordern",
+        
+        // Contact
+        "contact-title": "Kontaktieren Sie uns",
+        
+        // Footer
+        "footer-about": "Wir bieten hochwertige Büroreinigungsdienstleistungen mit englischsprachigem Personal an. Wir sind in jedem Detail auf Exzellenz bedacht.",
+        "footer-services-title": "Unsere Dienstleistungen",
+        "footer-links-title": "Quick Links",
+        "footer-contact-title": "Kontakt",
+        "copyright": "© 2025 Chamzen Dienstleistungen. Alle Rechte vorbehalten. | Design aus Berlin"
+      }
+    };
+
+    let currentLang = "en";
+
+    function toggleLanguage() {
+      currentLang = currentLang === "en" ? "de" : "en";
+      updateLanguage();
+    }
+
+    function updateLanguage() {
+      // Update all elements with translations
+      for (const key in lang[currentLang]) {
+        const elements = document.querySelectorAll(`[id="${key}"]`);
+        
+        elements.forEach(el => {
+          if (el.tagName === 'INPUT' && el.type !== 'submit') {
+            el.placeholder = lang[currentLang][key];
+          } else if (el.tagName === 'OPTION') {
+            el.textContent = lang[currentLang][key];
+          } else if (el.tagName === 'SPAN' && el.parentElement.classList.contains('price')) {
+            // Skip the span inside price elements
+            return;
+          } else {
+            el.textContent = lang[currentLang][key];
+          }
+        });
+      }
+      
+      // Update the language toggle button text
+      document.getElementById('lang-text').textContent = currentLang === 'en' ? 'DE' : 'EN';
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Form Submission Handling
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle contact form submission
+      const contactForm = document.getElementById('contact-form');
+      const contactSubmitBtn = document.getElementById('contact-submit-btn');
+      const contactFormMessage = document.getElementById('contact-form-message');
+      
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        let isValid = true;
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+          field.classList.remove('is-invalid');
+          const feedback = field.nextElementSibling;
+          if (feedback && feedback.classList.contains('invalid-feedback')) {
+            feedback.style.display = 'none';
+          }
+          
+          if (!field.value.trim()) {
+            field.classList.add('is-invalid');
+            const feedback = field.nextElementSibling;
+            if (feedback && feedback.classList.contains('invalid-feedback')) {
+              feedback.style.display = 'block';
+            }
+            isValid = false;
+          } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+            field.classList.add('is-invalid');
+            const feedback = field.nextElementSibling;
+            if (feedback && feedback.classList.contains('invalid-feedback')) {
+              feedback.textContent = 'Please provide a valid email address.';
+              feedback.style.display = 'block';
+            }
+            isValid = false;
+          }
+        });
+        
+        if (!isValid) {
+          showFormMessage(contactFormMessage, 
+            '<i class="fas fa-exclamation-triangle"></i><h3>Validation Error</h3><p>Please correct the highlighted fields.</p>', 
+            'error');
+          return;
+        }
+        
+        // Show loading state
+        showFormMessage(contactFormMessage, 
+          '<i class="fas fa-spinner fa-spin"></i><h3>Processing</h3><p>Sending your message...</p>', 
+          'loading');
+        
+        contactSubmitBtn.disabled = true;
+        const btnText = contactSubmitBtn.querySelector('.btn-text');
+        const spinner = contactSubmitBtn.querySelector('.loading-spinner');
+        btnText.style.display = 'none';
+        spinner.style.display = 'inline-block';
+        
+        try {
+          const formData = new FormData(contactForm);
+          
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          const responseData = await response.json();
+          
+          if (response.ok && responseData.success) {
+            showFormMessage(contactFormMessage, 
+              '<i class="fas fa-check-circle"></i><h3>Thank You!</h3><p>Your message has been sent successfully. We\'ll get back to you soon.</p>', 
+              'success');
+            contactForm.reset();
+          } else {
+            throw new Error(responseData.error || 'Form submission failed');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          
+          let errorMessage = 'An error occurred while sending your message. ';
+          
+          if (error.message.includes('Failed to fetch')) {
+            errorMessage += 'Please check your internet connection and try again.';
+          } else if (error.message.includes('Form submission failed')) {
+            errorMessage += 'The server encountered an error. Please try again later.';
+          } else {
+            errorMessage += error.message;
+          }
+          
+          showFormMessage(contactFormMessage, 
+            '<i class="fas fa-exclamation-triangle"></i><h3>Error</h3><p>' + errorMessage + '</p>', 
+            'error');
+        } finally {
+          contactSubmitBtn.disabled = false;
+          btnText.style.display = 'inline-block';
+          spinner.style.display = 'none';
+        }
+      });
+      
+      // Handle quote form submission
+      const quoteForm = document.getElementById('quote-form');
+      const quoteSubmitBtn = document.getElementById('quote-submit');
+      const quoteFormMessage = document.getElementById('quote-form-message');
+      
+      quoteForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Reset previous error states
+        quoteForm.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+        quoteForm.querySelectorAll('.invalid-feedback').forEach(el => el.style.display = 'none');
+        
+        // Validate form
+        let isValid = true;
+        const requiredFields = quoteForm.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            field.classList.add('is-invalid');
+            const feedback = field.nextElementSibling;
+            if (feedback && feedback.classList.contains('invalid-feedback')) {
+              feedback.style.display = 'block';
+            }
+            isValid = false;
+          } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+            field.classList.add('is-invalid');
+            const feedback = field.nextElementSibling;
+            if (feedback && feedback.classList.contains('invalid-feedback')) {
+              feedback.textContent = 'Please provide a valid email address.';
+              feedback.style.display = 'block';
+            }
+            isValid = false;
+          }
+        });
+        
+        // Validate phone number if provided
+        const phoneField = quoteForm.querySelector('#phone');
+        if (phoneField.value && !/^[\d\s\+\-\(\)]{6,20}$/.test(phoneField.value)) {
+          phoneField.classList.add('is-invalid');
+          const feedback = phoneField.nextElementSibling;
+          if (feedback && feedback.classList.contains('invalid-feedback')) {
+            feedback.textContent = 'Please provide a valid phone number.';
+            feedback.style.display = 'block';
+          }
+          isValid = false;
+        }
+        
+        if (!isValid) {
+          showFormMessage(quoteFormMessage, 
+            '<i class="fas fa-exclamation-triangle"></i><h3>Validation Error</h3><p>Please correct the highlighted fields.</p>', 
+            'error');
+          return;
+        }
+        
+        // Show loading state
+        showFormMessage(quoteFormMessage, 
+          '<i class="fas fa-spinner fa-spin"></i><h3>Processing</h3><p>Submitting your request...</p>', 
+          'loading');
+        
+        quoteSubmitBtn.disabled = true;
+        const btnText = quoteSubmitBtn.querySelector('.btn-text');
+        const spinner = quoteSubmitBtn.querySelector('.loading-spinner');
+        btnText.style.display = 'none';
+        spinner.style.display = 'inline-block';
+        
+        try {
+          const formData = new FormData(quoteForm);
+          
+          const response = await fetch(quoteForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          const responseData = await response.json();
+          
+          if (response.ok && responseData.success) {
+            showFormMessage(quoteFormMessage, 
+              '<i class="fas fa-check-circle"></i><h3>Thank You!</h3><p>Your quote request has been submitted successfully. We\'ll get back to you within 24 hours.</p>', 
+              'success');
+            quoteForm.reset();
+          } else {
+            throw new Error(responseData.error || 'Form submission failed');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          
+          let errorMessage = 'An error occurred while submitting your request. ';
+          
+          if (error.message.includes('Failed to fetch')) {
+            errorMessage += 'Please check your internet connection and try again.';
+          } else if (error.message.includes('Form submission failed')) {
+            errorMessage += 'The server encountered an error. Please try again later.';
+          } else {
+            errorMessage += error.message;
+          }
+          
+          showFormMessage(quoteFormMessage, 
+            '<i class="fas fa-exclamation-triangle"></i><h3>Error</h3><p>' + errorMessage + '</p>', 
+            'error');
+        } finally {
+          quoteSubmitBtn.disabled = false;
+          btnText.style.display = 'inline-block';
+          spinner.style.display = 'none';
+        }
+      });
+      
+      // Helper function to show form messages
+      function showFormMessage(element, message, type) {
+        element.innerHTML = message;
+        element.style.display = 'block';
+        element.className = 'form-message'; // Reset classes
+        
+        switch (type) {
+          case 'success':
+            element.classList.add('form-success');
+            break;
+          case 'error':
+            element.classList.add('form-error');
+            break;
+          case 'warning':
+            element.classList.add('form-warning');
+            break;
+          case 'loading':
+            element.classList.add('form-loading');
+            break;
+        }
+        
+        element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>
